@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2013-05-22 18:48:56 JST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "pgtest" does not exist
+FATAL:  role "pgtest" does not exist
+FATAL:  database "db/developmentpg" does not exist
