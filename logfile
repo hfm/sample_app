@@ -4,3 +4,7 @@ LOG:  autovacuum launcher started
 FATAL:  role "pgtest" does not exist
 FATAL:  role "pgtest" does not exist
 FATAL:  database "db/developmentpg" does not exist
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
