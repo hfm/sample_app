@@ -8,3 +8,10 @@ LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2013-05-23 11:51:17 JST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "db/developmentpg" already exists
+STATEMENT:  CREATE DATABASE "db/developmentpg" ENCODING = 'unicode'
+ERROR:  database "db/testpg" already exists
+STATEMENT:  CREATE DATABASE "db/testpg" ENCODING = 'unicode'
