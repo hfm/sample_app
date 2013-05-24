@@ -8,6 +8,7 @@ gem 'pg', '0.14.1'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'guard-rspec', '2.5.0'
   gem 'pry-rails'
   gem 'pry-theme'
 end
