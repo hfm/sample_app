@@ -14,9 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+<<<<<<< HEAD
 /config/database.yml
 =======
 bundler_stubs/
+### /Users/o302/.gitignore-boilerplates/Global/osx.gitignore
 
 .DS_Store
 .AppleDouble
@@ -30,3 +32,6 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+
+>>>>>>> heroku

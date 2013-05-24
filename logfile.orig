@@ -1,0 +1,22 @@
+LOG:  database system was shut down at 2013-05-22 18:48:56 JST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "pgtest" does not exist
+FATAL:  role "pgtest" does not exist
+FATAL:  database "db/developmentpg" does not exist
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+<<<<<<< HEAD
+LOG:  database system was shut down at 2013-05-23 11:51:17 JST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "db/developmentpg" already exists
+STATEMENT:  CREATE DATABASE "db/developmentpg" ENCODING = 'unicode'
+ERROR:  database "db/testpg" already exists
+STATEMENT:  CREATE DATABASE "db/testpg" ENCODING = 'unicode'
+=======
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 12081) running in data directory "/usr/local/var/postgres"?
+>>>>>>> heroku
