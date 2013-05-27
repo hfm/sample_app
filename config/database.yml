@@ -14,6 +14,7 @@ development:
   database: db/developmentpg
   pool: 5
   timeout: 5000
+  #old_database
   username: pgtest
   password:
 
@@ -38,6 +39,7 @@ test:
   database: db/testpg
   pool: 5
   timeout: 5000
+  #old_database
   username: pgtest
   password:
 
