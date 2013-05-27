@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.9)
+    bootstrap-sass (2.3.0.1)
+      sass (~> 3.2)
     builder (3.1.4)
     capybara (2.1.0.rc1)
       mime-types (>= 1.16)
@@ -82,7 +84,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     minitest (4.7.4)
-    multi_json (1.7.3)
+    multi_json (1.7.4)
     nokogiri (1.5.9)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -144,7 +146,7 @@ GEM
       json_pure
       rubyzip
     slop (3.4.5)
-    sprockets (2.9.3)
+    sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -175,6 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (= 2.3.0.1)
   capybara (= 2.1.0.rc1)
   coffee-rails (~> 4.0.0)
   guard-rspec (= 2.5.0)
