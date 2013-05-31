@@ -5,7 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0.rc1'
 gem 'bootstrap-sass', '2.3.0.1'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'sqlite3'
+gem "pg", :group => :production
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
@@ -15,6 +15,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'sqlite3', '1.3.7'
   gem 'selenium-webdriver', '2.0'
   gem 'capybara', '2.1.0.rc1'
   gem 'factory_girl_rails', '4.2.1'
