@@ -3,15 +3,15 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
+    <%= form_tag('/sessions', method: :post) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= label_tag 'session[email]', 'Email' %>
+      <%= text_field_tag 'session[email]' %>
 
-      <%= f.label :password %>
-      <%= f.text_field :password %>
+      <%= label_tag 'session[password]', 'Password' %>
+      <%= password_field_tag 'session[password]' %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
 
     <p>New user? <%= link_to "Sign up now", signup_path %></p>
