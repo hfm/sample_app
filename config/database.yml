@@ -32,7 +32,7 @@ production:
   pool: 5
   timeout: 5000
 
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
   database: db/testpg
@@ -46,3 +46,6 @@ test:
 #  database: db/production.pg
 #  pool: 5
 #  timeout: 5000
+
+cucumber:
+  <<: *test
