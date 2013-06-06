@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/bmabey/database_cleaner.git
+  revision: 5dc784af6661fd9067953458fbac1b2e0334f0db
+  specs:
+    database_cleaner (1.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,7 +34,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.9)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.0.1)
+    bootstrap-sass (2.3.1.3)
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.9)
       will_paginate
@@ -41,7 +47,6 @@ GEM
       xpath (>= 2.0.0.beta1)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -58,7 +63,6 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
-    database_cleaner (1.0.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -71,21 +75,8 @@ GEM
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.8.1)
-    formatador (0.2.4)
     gherkin (2.12.0)
       multi_json (~> 1.3)
-    guard (1.8.0)
-      formatador (>= 0.2.4)
-      listen (>= 1.0.0)
-      lumberjack (>= 1.0.2)
-      pry (>= 0.9.10)
-      thor (>= 0.14.6)
-    guard-rspec (2.5.0)
-      guard (>= 1.1)
-      rspec (~> 2.11)
-    guard-zeus (0.0.1)
-      guard
-      zeus
     hike (1.2.3)
     i18n (0.6.4)
     jbuilder (1.0.2)
@@ -93,26 +84,17 @@ GEM
     jquery-rails (3.0.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    json (1.8.0)
     json_pure (1.8.0)
-    listen (1.1.6)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-      rb-kqueue (>= 0.2)
-    lumberjack (1.0.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
     mime-types (1.23)
     minitest (4.7.4)
     multi_json (1.7.6)
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
-      method_source (~> 0.8)
-      slop (~> 3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -130,15 +112,8 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.0.4)
-    rb-fsevent (0.9.3)
-    rb-inotify (0.9.0)
-      ffi (>= 0.5.0)
-    rb-kqueue (0.2.0)
-      ffi (>= 0.5.0)
-    rspec (2.13.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
+    rdoc (3.12.2)
+      json (~> 1.4)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
@@ -157,12 +132,14 @@ GEM
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc0)
       tilt (~> 1.3)
-    selenium-webdriver (2.0.0)
+    sdoc (0.3.20)
+      json (>= 1.1.3)
+      rdoc (~> 3.10)
+    selenium-webdriver (2.0.1)
       childprocess (>= 0.1.9)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
-    slop (3.4.5)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -189,33 +166,29 @@ GEM
     will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    zeus (0.13.3)
-      method_source (>= 0.6.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
-  bootstrap-sass (= 2.3.0.1)
+  bootstrap-sass (>= 2.3.1.0)
   bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0.rc1)
   coffee-rails (~> 4.0.0)
   cucumber-rails (= 1.3.0)
-  database_cleaner (~> 1.0.0.RC1)
+  database_cleaner!
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
-  guard-rspec (= 2.5.0)
-  guard-zeus
   jbuilder (~> 1.0.1)
   jquery-rails
-  pg
-  rails (= 4.0.0.rc1)
+  pg (= 0.15.1)
+  rails (>= 4.0.0.rc1)
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0.rc1)
-  selenium-webdriver (= 2.0)
+  sdoc (= 0.3.20)
+  selenium-webdriver (~> 2.0.0)
   sqlite3 (= 1.3.7)
   turbolinks
-  uglifier (>= 1.3.0)
+  uglifier (>= 2.1.0)
   will_paginate (= 3.0.4)
-  zeus
