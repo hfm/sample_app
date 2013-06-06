@@ -25,6 +25,9 @@ describe "Authentication" do
 
       it { should have_title(signin) }
       it { should have_error_message('Invalid') }
+      it { should_not have_link(profile) }
+      it { should_not have_link(setting) }
+      it { should_not have_link(signout, href: signout_path) }
 
       describe "after visiting another page" do
         before { click_link "Home" }
