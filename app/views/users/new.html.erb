@@ -4,6 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |field| %>
+      <%= render "shared/error_messages", object: field.object %>
       <%= render "fields", field: field %>
       <%= field.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
