@@ -160,4 +160,26 @@ describe "User pages" do
       specify { expect(user.reload).not_to be_admin }
     end
   end
+  
+  describe "other users pages" do
+    let(:user_me) { FactoryGirl.create(:user) }
+    let(:user_other) { FactoryGirl.create(:user) }
+    let!(:m1) { FactoryGirl.create(:micropost, user: user_other, content: "Foo") }
+    before do
+      sign_in user_me
+      visit user_path(user_other)
+    end
+
+    it { should have_content(user_other.name) }
+    it { should have_title(user_other.name) }
+
+    describe "microposts" do
+      it { should have_content(m1.content) }
+      it { should have_content(user_other.microposts.count) }
+    end
+
+    describe "delete links" do
+      it { should_not have_link('delete') }
+    end
+  end
 end
