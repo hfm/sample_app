@@ -41,7 +41,7 @@ describe "Static pages" do
             visit root_path
           end
 
-          it { should have_content(/\d micropost[^s]/) }
+          it { should have_content(/1 micropost[^s]/) }
         end
 
         describe "for multiple posts" do
