@@ -170,14 +170,6 @@ describe "User pages" do
       visit user_path(user_other)
     end
 
-    it { should have_content(user_other.name) }
-    it { should have_title(user_other.name) }
-
-    describe "microposts" do
-      it { should have_content(m1.content) }
-      it { should have_content(user_other.microposts.count) }
-    end
-
     describe "delete links" do
       it { should_not have_link('delete') }
     end
