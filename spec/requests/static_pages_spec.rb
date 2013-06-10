@@ -52,7 +52,7 @@ describe "Static pages" do
             visit root_path
           end
 
-          it { should have_content(/\d microposts/) }
+          it { should have_content(/2 microposts/) }
         end
       end
     end
