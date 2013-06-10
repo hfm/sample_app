@@ -1,4 +1,5 @@
 include ApplicationHelper
+include MicropostsHelper
 
 def valid_signin(user)
   fill_in "Email", with: user.email
