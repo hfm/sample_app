@@ -15,7 +15,7 @@ describe "User pages" do
     it { should have_content('All users') }
 
     describe "pagination" do
-      before (:all) { 31.times {FactoryGirl.create(:user) } }
+      before (:all) { 30.times {FactoryGirl.create(:user) } }
       after (:all) { User.delete_all }
 
       it { should have_selector('div.pagination') }
@@ -24,22 +24,6 @@ describe "User pages" do
         User.paginate(page: 1).each do |user|
           expect(page).to have_selector('li', text: user.name)
         end
-      end
-
-      it "should have 30 contents at page 1" do
-        count = 0
-        User.paginate(page: 1).each do |user|
-          count += 1
-        end
-        count == 30
-      end
-
-      it "should have 1 content at page 2" do
-        count = 0
-        User.paginate(page: 2).each do |user|
-          count += 1
-        end
-        count == 1
       end
     end
 
@@ -64,18 +48,36 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    let!(:m1) { FactoryGirl.create(:micropost, user: user, content: "Foo") }
-    let!(:m2) { FactoryGirl.create(:micropost, user: user, content: "Bar") }
+    before do
+      31.times { FactoryGirl.create(:micropost, user: user) } 
+      sign_in user
+      visit user_path(user)
+    end
 
-    before { visit user_path(user) }
+    describe "should have correct user" do
+      it { should have_content(user.name) }
+      it { should have_title(user.name) }
+    end
 
-    it { should have_content(user.name) }
-    it { should have_title(user.name) }
-
-    describe "microposts" do
-      it { should have_content(m1.content) }
-      it { should have_content(m2.content) }
+    describe "should have correct microposts" do
+      it { should have_selector('div.pagination') }
       it { should have_content(user.microposts.count) }
+
+      it "should have 30 contents at page 1" do
+        count = 0
+        User.paginate(page: 1).each do |user|
+          count += 1
+        end
+        count == 30
+      end
+
+      it "should have 1 content at page 2" do
+        count = 0
+        User.paginate(page: 2).each do |user|
+          count += 1
+        end
+        count == 1
+      end
     end
   end
 
