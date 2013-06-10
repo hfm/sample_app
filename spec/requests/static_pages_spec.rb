@@ -34,7 +34,7 @@ describe "Static pages" do
       end
 
       describe "should have correct micropost counts at the sidebar" do
-        describe "for a singular post" do
+        context "for a singular post" do
           before do
             FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
             sign_in user
@@ -44,7 +44,7 @@ describe "Static pages" do
           it { should have_content(/1 micropost[^s]/) }
         end
 
-        describe "for multiple posts" do
+        context "for multiple posts" do
           before do
             FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
             FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
