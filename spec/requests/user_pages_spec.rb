@@ -69,7 +69,7 @@ describe "User pages" do
           expect(page).to have_selector('li', text: micropost.content)
           count += 1
         end
-        count == 30
+        expect(count).equal? 30
       end
 
       it "should have 1 content at page 2" do
@@ -78,7 +78,7 @@ describe "User pages" do
           expect(page).to have_selector('li', text: micropost.content)
           count += 1
         end
-        count == 1
+        expect(count).equal? 1
       end
     end
   end
