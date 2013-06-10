@@ -1,0 +1,9 @@
+<span class="content"><%= each_post.content %></span>
+<span class="timestamp">
+  Posted <%= time_ago_in_words(each_post.created_at) %> ago.
+</span>
+<% if current_user?(each_post.user) %>
+  <%= link_to "delete", each_post, method: :delete,
+    data: { confirm: "You sure?" },
+    title: each_post.content %>
+<% end %>
