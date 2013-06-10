@@ -65,7 +65,8 @@ describe "User pages" do
 
       it "should have 30 contents at page 1" do
         count = 0
-        User.paginate(page: 1).each do |user|
+        user.microposts.paginate(page: 1).each do |micropost|
+          expect(page).to have_selector('li', text: micropost.content)
           count += 1
         end
         count == 30
@@ -73,7 +74,8 @@ describe "User pages" do
 
       it "should have 1 content at page 2" do
         count = 0
-        User.paginate(page: 2).each do |user|
+        user.microposts.paginate(page: 2).each do |micropost|
+          expect(page).to have_selector('li', text: micropost.content)
           count += 1
         end
         count == 1
