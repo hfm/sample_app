@@ -18,18 +18,20 @@ describe "Micropost pages" do
 
       describe "error messages" do
         before { click_button "Post" }
+
         it { should have_content("error") } 
       end
     end
 
     describe "with valid information" do
-
       before { fill_in "micropost_content", with: "Lorem ipsum" }
+
       it "should create a micropost" do
         expect { click_button "Post" }.to change(Micropost, :count).by(1)
       end
     end
   end
+
   describe "micropost destruction" do
     before { FactoryGirl.create(:micropost, user: user) }
 
