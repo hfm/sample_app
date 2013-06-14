@@ -209,17 +209,15 @@ describe User do
 
     describe "destroyed user" do
       it "should destroy relationships" do
-        user_id = @user.id
         @user.destroy
-        expect(Relationship.where(follower_id:user_id ,followed_id:other_user.id)).to be_empty
+        expect(Relationship.where(follower_id: @user.id ,followed_id:other_user.id)).to be_empty
       end
     end
 
     describe "destroyed other_user" do
       it "should destroy relationships" do
-        other_user_id = other_user.id
         other_user.destroy
-        expect(Relationship.where(follower_id:@user.id ,followed_id:other_user_id)).to be_empty
+        expect(Relationship.where(follower_id: @user.id ,followed_id: other_user.id)).to be_empty
       end
     end
   end
