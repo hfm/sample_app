@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130611050758) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
