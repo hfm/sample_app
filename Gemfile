@@ -24,7 +24,7 @@ group :test do
   gem 'capybara', '2.1.0.rc1'
   gem 'factory_girl_rails', '4.2.1'
   gem 'cucumber-rails', '1.3.0', :require => false
-  gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'database_cleaner'
 end
 
 gem 'sass-rails', '~> 4.0.0.rc1'
@@ -33,7 +33,3 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
-
-group :doc do
-  gem 'sdoc', '0.3.20', require: false
-end

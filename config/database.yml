@@ -9,7 +9,7 @@ development:
 production:
   adapter: mysql2
   database: sampleapp
-  username: hfm
+  username: okkun
   password: hogehoge
   pool: 5
   timeout: 5000
