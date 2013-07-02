@@ -15,8 +15,10 @@ vendor/
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-=======
+
 bundler_stubs/
+Gemfile.lock
+.rspec
 
 .DS_Store
 .AppleDouble
