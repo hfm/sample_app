@@ -15,6 +15,7 @@ gem 'therubyracer'
 gem 'libv8','3.11.8.17'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
 end
 
