@@ -1,4 +1,4 @@
-rails_root = "/var/www/rails" 
+rails_root = "/var/www/rails/current" 
 
 worker_processes 4
 
