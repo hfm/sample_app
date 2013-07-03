@@ -1,36 +1,43 @@
 set :application, "sample_app"
-set :repository,  "set your repository location here"
 
-set:user, "hfm"
+require 'capistrano_colors'
+require "bundler/capistrano"
+set :bundle_flags, "--no-deployment --without test development"
+
+set :scm, :git
+set :repository,  "https://github.com/Tacahilo/sample_app.git"
+set :branch, 'master'
+set :deploy_to, "/var/www/rails"
+set :shared_paths, ['config/database.yml', 'log']
+set :rails_env, "production"
+
+set :user, "okkun"
 ssh_options[:keys] = "~/.ssh/maglica"
+set :use_sudo, false
 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+role :app, "app002.okkun.pb"
+role :web, "app002.okkun.pb"
+role :db,  "app002.okkun.pb", :primary => true
 
-#role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :web, "app002.okkun.pb"                          # This may be the same as your `Web` server
-#role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
-
-task :list  do
-  run "ls"
+task :env do
+  run 'env'
 end
 
-task :clone_tmp do
-  run "git clone https://github.com/Tacahilo/sample_app.git /tmp/sample_app"
+namespace :assets do
+  task :precompile, :roles => :web do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+  end
 end
 
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+namespace :deploy do
+  task :unicorn_restart, :roles => :web do
+    run "/etc/init.d/unicorn restart"
+  end
+end
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+before :deploy, "deploy:setup"
+after :deploy, "deploy:migrate"
+after :deploy, "assets:precompile"
+after :deploy, "deploy:restart"
+after :deploy, "deploy:cleanup"
+after :deploy, "deploy:unicorn_restart"
