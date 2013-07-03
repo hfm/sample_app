@@ -20,8 +20,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano', '~> 3.0.0.pre6'
-  gem 'capistrano-rails', github: 'capistrano/rails'
+  gem 'capistrano'
+  gem 'capistrano-ext'
+  gem 'capistrano_colors'
 end
 
 group :test do
