@@ -16,7 +16,7 @@ production:
 
 test: 
   adapter: mysql2
-  database: sampleapp_dev
+  database: sampleapp_test
   username: hfm
   password: hogehoge
   pool: 5

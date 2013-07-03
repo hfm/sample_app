@@ -37,3 +37,5 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
+
+gem 'coveralls', require: false
