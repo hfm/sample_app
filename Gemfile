@@ -19,9 +19,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-  gem 'capistrano_colors'
+  gem 'capistrano', '~> 3.0.0.pre6'
+  gem 'capistrano-rails', github: 'capistrano/rails'
 end
 
 group :test do
