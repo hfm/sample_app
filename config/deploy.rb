@@ -25,7 +25,7 @@ end
 
 namespace :assets do
   task :precompile, :roles => :web do
-    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+    run "cd #{deploy_to}/current && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
   end
 end
 
