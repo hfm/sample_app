@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '>= 4.0.0.rc1'
+gem 'rails'
 gem 'unicorn'
-#gem 'serverspec'
-gem 'bootstrap-sass', '>= 2.3.1.0'
-gem 'bcrypt-ruby', '3.0.1'
-gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'mysql2'
 gem 'nokogiri'
 gem 'execjs'
@@ -19,17 +18,20 @@ group :development, :test do
   gem 'rspec-rails', '2.13.1'
 end
 
+group :development do
+  gem 'capistrano'
+end
+
 group :test do
-  gem 'selenium-webdriver', '~> 2.0.0'
-  gem 'capybara', '2.1.0.rc1'
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'cucumber-rails', '1.3.0', :require => false
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
 
-gem 'sass-rails', '~> 4.0.0.rc1'
-gem 'uglifier', '>= 2.1.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder'
