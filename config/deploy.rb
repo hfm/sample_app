@@ -13,8 +13,13 @@ role :web, "app002.okkun.pb"                          # This may be the same as 
 #role :db,  "your slave db-server here"
 
 task :list  do
-    run "ls"
+  run "ls"
 end
+
+task :clone_tmp do
+  run "git clone https://github.com/Tacahilo/sample_app.git /tmp/sample_app"
+end
+
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
