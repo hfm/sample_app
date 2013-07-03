@@ -1,4 +1,4 @@
-rails_root = "/var/www/sample_app" 
+rails_root = "/var/www/rails" 
 
 worker_processes 4
 
@@ -8,7 +8,7 @@ listen rails_root + "/tmp/sockets/unicorn.sock", :backlog => 64
 
 timeout 30
 
-pid rails_root + "/unicorn.pid"
+pid rails_root + "/tmp/pids/unicorn.pid"
 
 stderr_path rails_root + "/log/unicorn.stderr.log"
 stdout_path rails_root + "/log/unicorn.stdout.log"
