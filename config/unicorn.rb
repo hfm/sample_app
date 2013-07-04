@@ -1,11 +1,8 @@
 rails_root = '/var/www/rails/current' 
-rails_env = 'production'
+working_directory rails_root
 worker_processes 4
 
-working_directory rails_root
-
 listen rails_root + '/tmp/unicorn.sock', :backlog => 64
-
 timeout 30
 
 pid rails_root + "/tmp/pids/unicorn.pid"
@@ -19,8 +16,9 @@ GC.respond_to?(:copy_on_write_friendly=) and
   GC.copy_on_write_friendly = true
 
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) and
+  if defined?(ActiveRecord::Base)
     ActiveRecord::Base.connection.disconnect!
+  end
 
    old_pid = "#{server.config[:pid]}.oldbin"
    if old_pid != server.pid
@@ -33,8 +31,9 @@ before_fork do |server, worker|
 end
  
 after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and
+  if defined?(ActiveRecord::Base)
     ActiveRecord::Base.establish_connection
+  end
 
   if defined?(ActiveSupport::Cache::Dallistore) and Rails.cache.is_a?(ActiveSupport::Cache::Dallistore)
     Rails.cache.reset
