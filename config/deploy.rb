@@ -31,7 +31,7 @@ end
 
 namespace :deploy do
   desc 'Restart unicorn'
-  task :unicorn_restart, :roles => :web do
+  task :restart, :roles => :web do
     run "/etc/init.d/unicorn restart"
   end
 
@@ -46,5 +46,4 @@ after :deploy, "deploy:migrate"
 after :deploy, "assets:precompile"
 after :deploy, "deploy:restart"
 after :deploy, "deploy:cleanup"
-after :deploy, "deploy:unicorn_restart"
 after :deploy, "deploy:clear_dalli_cache"
