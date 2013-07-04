@@ -25,13 +25,19 @@ end
 
 namespace :assets do
   task :precompile, :roles => :web do
-    run "cd #{deploy_to}/current && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
   end
 end
 
 namespace :deploy do
+  desc 'Restart unicorn'
   task :unicorn_restart, :roles => :web do
     run "/etc/init.d/unicorn restart"
+  end
+
+  desc 'Clear cache'
+  tast :clear_dalli_cache do
+    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake cache:clear"
   end
 end
 
@@ -41,3 +47,4 @@ after :deploy, "assets:precompile"
 after :deploy, "deploy:restart"
 after :deploy, "deploy:cleanup"
 after :deploy, "deploy:unicorn_restart"
+after :deploy, "deploy:clear_dalli_cache"
