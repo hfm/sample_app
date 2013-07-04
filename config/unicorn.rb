@@ -1,10 +1,10 @@
-rails_root = "/var/www/rails/current" 
-
+rails_root = '/var/www/rails/current' 
+rails_env = 'production'
 worker_processes 4
 
 working_directory rails_root
 
-listen rails_root + "/tmp/sockets/unicorn.sock", :backlog => 64
+listen rails_root + '/tmp/unicorn.sock', :backlog => 64
 
 timeout 30
 
