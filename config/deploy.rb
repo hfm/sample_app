@@ -30,8 +30,13 @@ namespace :assets do
 end
 
 namespace :deploy do
+  desc 'Start unicorn'
+  task :start, :roles => :app do
+    run "/etc/init.d/unicorn start"
+  end
+
   desc 'Restart unicorn'
-  task :restart, :roles => :web do
+  task :restart, :roles => :app do
     run "/etc/init.d/unicorn restart"
   end
 
@@ -41,9 +46,5 @@ namespace :deploy do
   end
 end
 
-before :deploy, "deploy:setup"
-after :deploy, "deploy:migrate"
-after :deploy, "assets:precompile"
-after :deploy, "deploy:restart"
 after :deploy, "deploy:cleanup"
 after :deploy, "deploy:clear_dalli_cache"
