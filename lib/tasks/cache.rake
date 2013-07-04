@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../config/environment")
 
-namespace :cache
+namespace :cache do
   desc 'Clear memcache'
-  tast :clear => :environment do
+  task :clear => :environment do
     Rails.cache.clear
   end
 end
