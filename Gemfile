@@ -13,10 +13,11 @@ gem 'nokogiri'
 gem 'execjs'
 gem 'therubyracer'
 gem 'libv8','3.11.8.17'
+gem 'dalli'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails'
 end
 
 group :development do
