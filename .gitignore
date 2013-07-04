@@ -19,6 +19,7 @@ vendor/
 bundler_stubs/
 Gemfile.lock
 .rspec
+/coverage
 
 .DS_Store
 .AppleDouble
