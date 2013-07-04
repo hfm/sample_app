@@ -36,7 +36,7 @@ namespace :deploy do
   end
 
   desc 'Clear cache'
-  tast :clear_dalli_cache do
+  task :clear_dalli_cache do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake cache:clear"
   end
 end
