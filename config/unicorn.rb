@@ -2,7 +2,7 @@ rails_root = '/var/www/rails/current'
 working_directory rails_root
 worker_processes 4
 
-listen rails_root + '/tmp/unicorn.sock', :backlog => 64
+listen rails_root + '/run/unicorn.sock', :backlog => 64
 timeout 30
 
 pid rails_root + "/tmp/pids/unicorn.pid"
