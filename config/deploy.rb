@@ -1,9 +1,9 @@
-set :application, "sample_app"
-
 require 'capistrano_colors'
 require "bundler/capistrano"
 set :bundle_flags, "--no-deployment --without test development"
+load 'deploy/assets'
 
+set :application, "sample_app"
 set :scm, :git
 set :repository,  "https://github.com/Tacahilo/sample_app.git"
 set :branch, 'master'
@@ -18,9 +18,9 @@ set :user_group, "appuser"
 ssh_options[:keys] = "~/.ssh/maglica"
 set :use_sudo, false
 
-role :app, "app001.okkun.pb"
-role :web, "app001.okkun.pb"
-role :db,  "app001.okkun.pb", :primary => true
+role :app, "192.168.46.90"
+role :web, "192.168.46.90"
+role :db,  "192.168.46.90", :primary => true
 
 task :env do
   run 'env'
@@ -48,9 +48,3 @@ namespace :deploy do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake cache:clear"
   end
 end
-
-before :deploy, "deploy:setup"
-after :deploy, "deploy:migrate"
-after :deploy, "deploy:cleanup"
-after :deploy, "deploy:clear_dalli_cache"
-after :deploy, "deploy:restart"
