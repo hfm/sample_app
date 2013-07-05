@@ -10,14 +10,17 @@ set :branch, 'master'
 set :deploy_to, "/var/www/rails"
 set :shared_paths, ['config/database.yml', 'log']
 set :rails_env, "production"
+set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
+set :unicorn_config, "#{current_path}/config/unicorn.rb"
 
 set :user, "okkun"
+set :user_group, "appuser"
 ssh_options[:keys] = "~/.ssh/maglica"
 set :use_sudo, false
 
-role :app, "app002.okkun.pb"
-role :web, "app002.okkun.pb"
-role :db,  "app002.okkun.pb", :primary => true
+role :app, "app001.okkun.pb"
+role :web, "app001.okkun.pb"
+role :db,  "app001.okkun.pb", :primary => true
 
 task :env do
   run 'env'
@@ -46,5 +49,8 @@ namespace :deploy do
   end
 end
 
+before :deploy, "deploy:setup"
+after :deploy, "deploy:migrate"
 after :deploy, "deploy:cleanup"
 after :deploy, "deploy:clear_dalli_cache"
+after :deploy, "deploy:restart"
