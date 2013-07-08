@@ -20,7 +20,7 @@ set :use_sudo, false
 
 role :app, "app001.okkun.pb"
 role :web, "app001.okkun.pb"
-role :db,  "db001.okkun.pb", :primary => true
+role :db,  "app001.okkun.pb", :primary => true
 
 task :env do
   run 'env'
