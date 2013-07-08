@@ -11,9 +11,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter:  mysql2
   database: sampleapp
+  host:     db001.okkun.pb
+  port:     3306
   username: okkun
   password: hogehoge
-  pool: 5
-  timeout: 5000
+  pool:     5
+  timeout:  5000

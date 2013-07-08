@@ -18,18 +18,12 @@ set :user_group, "appuser"
 ssh_options[:keys] = "~/.ssh/maglica"
 set :use_sudo, false
 
-role :app, "192.168.46.90"
-role :web, "192.168.46.90"
-role :db,  "192.168.46.90", :primary => true
+role :app, "app001.okkun.pb"
+role :web, "app001.okkun.pb"
+role :db,  "db001.okkun.pb", :primary => true
 
 task :env do
   run 'env'
-end
-
-namespace :assets do
-  task :precompile, :roles => :web do
-    run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
-  end
 end
 
 namespace :deploy do
