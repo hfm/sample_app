@@ -13,7 +13,7 @@ namespace :puppet do
 
   desc 'puppet apply to app002'
   task :app002 do
-    puppet_apply('app')
+    puppet_apply('app_with_session')
   end
 
   desc 'puppet apply to db001'
