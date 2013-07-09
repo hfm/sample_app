@@ -1,6 +1,8 @@
 require 'capistrano_colors'
+require 'capistrano/ext/multistage'
 require "bundler/capistrano"
 set :bundle_flags, "--no-deployment --without test development"
+
 load 'deploy/assets'
 
 set :application, "sample_app"
