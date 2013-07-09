@@ -25,12 +25,12 @@ role :db,  "app001.okkun.pb", :primary => true
 namespace :deploy do
   desc 'Start unicorn'
   task :start, :roles => :app do
-    run "/etc/init.d/unicorn start"
+    run "sudo /etc/init.d/unicorn start"
   end
 
   desc 'Restart unicorn'
   task :restart, :roles => :app do
-    run "/etc/init.d/unicorn restart"
+    run "sudo /etc/init.d/unicorn restart"
   end
 
   desc 'Clear cache'
@@ -57,6 +57,6 @@ namespace :puppet do
 end
 
 def puppet_apply(manifests)
-  puppet_path = 'sampleapp_spec_puppet/puppet.d/'
+  puppet_path = '/home/hfm/sampleapp_spec_puppet/puppet.d/'
   run("cd #{puppet_path}; sudo puppet apply manifests/#{manifests}.pp --modulepath=modules:roles")
 end
