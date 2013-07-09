@@ -2,6 +2,9 @@ require 'capistrano_colors'
 require 'capistrano/ext/multistage'
 load 'deploy/assets'
 
+set :stages, %w(app db)
+set :default_stage, "app"
+
 namespace :puppet do
   desc 'puppet apply to app001'
   task :app001 do
