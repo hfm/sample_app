@@ -2,9 +2,9 @@ module SessionsHelper
 
   def sign_in(user)
     if Rails.env.production?
-      cookies.permanent[:remember_token] = { :value => user.remember_token, :domain => :all}
+      cookies[:remember_token] = { :value => user.remember_token, :domain => '.okkun.pb'}
     else
-      cookies.permanent[:remember_token] = user.remember_token
+      cookies[:remember_token] = user.remember_token
     end
     self.current_user = user
   end
