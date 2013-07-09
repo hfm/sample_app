@@ -22,10 +22,6 @@ role :app, "app001.okkun.pb"
 role :web, "app001.okkun.pb"
 role :db,  "app001.okkun.pb", :primary => true
 
-task :env do
-  run 'env'
-end
-
 namespace :deploy do
   desc 'Start unicorn'
   task :start, :roles => :app do
@@ -41,4 +37,26 @@ namespace :deploy do
   task :clear_dalli_cache do
     run "cd #{current_path} && RAILS_ENV=#{rails_env} bundle exec rake cache:clear"
   end
+end
+
+namespace :puppet do
+  desc 'puppet apply to app001'
+  task :app001 do
+    puppet_apply('app')
+  end
+
+  desc 'puppet apply to app002'
+  task :app002 do
+    puppet_apply('app')
+  end
+
+  desc 'puppet apply to db001'
+  task :db001 do
+    puppet_apply('db')
+  end
+end
+
+def puppet_apply(manifests)
+  puppet_path = 'sampleapp_spec_puppet/puppet.d/'
+  run("cd #{puppet_path}; sudo puppet apply manifests/#{manifests}.pp --modulepath=modules:roles")
 end
