@@ -15,3 +15,20 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require charCount
+
+  function countChar(val) {
+    var max_count = 140;
+
+    var len = val.value.length;
+    if (len >= max_count) {
+      val.value = val.value.substring(0, max_count);
+    } else {
+      $('#char_counter').text(max_count);
+    }
+  };
+
+countChar($('#micropost_content').get(0));
+$('#micropost_content').keyup(function() {
+  countChar(this);
+});
