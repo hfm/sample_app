@@ -30,7 +30,7 @@ module SessionsHelper
 
   def sign_out
     self.current_user = nil
-    cookies.delete(:remember_token, :domain => '.okkun.pb')
+    cookies.delete(:remember_token)
   end
 
   def redirect_back_or(default)
