@@ -12,6 +12,7 @@ test:
 
 production:
   adapter:  mysql2
+  encoding: utf8
   database: sampleapp
   host:     db001.okkun.pblan
   port:     3306
@@ -19,4 +20,3 @@ production:
   password: hogehoge
   pool:     5
   timeout:  5000
-  encoding: utf8
