@@ -25,7 +25,7 @@ role :db,  "app001.okkun.pb", "app002.okkun.pb", :primary => true
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
 
-namespace :unicorn do
+namespace :deploy do
   desc 'Start unicorn'
   task :start, :roles => :app do
     run "sudo /etc/init.d/unicorn start"
