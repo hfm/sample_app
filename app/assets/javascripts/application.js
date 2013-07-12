@@ -16,6 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('ready page:change', function(){
   $("#micropost_content").charCount();
 });
