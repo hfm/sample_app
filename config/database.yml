@@ -19,3 +19,4 @@ production:
   password: hogehoge
   pool:     5
   timeout:  5000
+  encoding: utf8
